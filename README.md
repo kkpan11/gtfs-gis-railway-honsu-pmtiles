@@ -1,4 +1,5 @@
-# 全国鉄道運行本数データ（FlatGeobuf形式及びPMTiles形式）
+# 全国鉄道運行本数データ
+（FlatGeobuf形式及びPMTiles形式）
 ## データの出典
 [全国鉄道運行本数データ公開ページ](https://gtfs-gis.jp/railway_honsu/index.html)
 
