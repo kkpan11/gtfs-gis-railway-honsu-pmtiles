@@ -38,6 +38,11 @@ jobs:
             ["unkohonsu2024_kukan_eki"]="https://gtfs-gis.jp/railway_honsu/data/unkohonsu2024_kukan_eki.geojson"
             ["unkohonsu2024_rosen_eki"]="https://gtfs-gis.jp/railway_honsu/data/unkohonsu2024_rosen_eki.geojson"
             ["unkohonsu2024_eki"]="https://gtfs-gis.jp/railway_honsu/data/unkohonsu2024_eki.geojson"
+            ["unkohonsu2023_rosen_kukan"]="https://gtfs-gis.jp/railway_honsu/data/unkohonsu2023_rosen_kukan.geojson"
+            ["unkohonsu2023_kukan"]="https://gtfs-gis.jp/railway_honsu/data/unkohonsu2023_kukan.geojson"
+            ["unkohonsu2023_kukan_eki"]="https://gtfs-gis.jp/railway_honsu/data/unkohonsu2023_kukan_eki.geojson"
+            ["unkohonsu2023_rosen_eki"]="https://gtfs-gis.jp/railway_honsu/data/unkohonsu2023_rosen_eki.geojson"
+            ["unkohonsu2023_eki"]="https://gtfs-gis.jp/railway_honsu/data/unkohonsu2023_eki.geojson"
           )
           for key in "${!urls[@]}"; do
             curl -o "$key.geojson" "${urls[$key]}"
@@ -52,6 +57,11 @@ jobs:
           tippecanoe -o PMTiles/unkohonsu2024_kukan_eki.pmtiles --force FlatGeobuf/unkohonsu2024_kukan_eki.fgb -r1 -pf -pk
           tippecanoe -o PMTiles/unkohonsu2024_rosen_eki.pmtiles --force FlatGeobuf/unkohonsu2024_rosen_eki.fgb -r1 -pf -pk
           tippecanoe -o PMTiles/unkohonsu2024_eki.pmtiles --force FlatGeobuf/unkohonsu2024_eki.fgb -r1 -pf -pk
+          tippecanoe -o PMTiles/unkohonsu2023_rosen_kukan.pmtiles --force FlatGeobuf/unkohonsu2023_rosen_kukan.fgb -pf -pk
+          tippecanoe -o PMTiles/unkohonsu2023_kukan.pmtiles --force FlatGeobuf/unkohonsu2023_kukan.fgb -pf -pk
+          tippecanoe -o PMTiles/unkohonsu2023_kukan_eki.pmtiles --force FlatGeobuf/unkohonsu2023_kukan_eki.fgb -r1 -pf -pk
+          tippecanoe -o PMTiles/unkohonsu2023_rosen_eki.pmtiles --force FlatGeobuf/unkohonsu2023_rosen_eki.fgb -r1 -pf -pk
+          tippecanoe -o PMTiles/unkohonsu2023_eki.pmtiles --force FlatGeobuf/unkohonsu2023_eki.fgb -r1 -pf -pk
 
       - name: Commit and push changes
         run: |
