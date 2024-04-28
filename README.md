@@ -35,3 +35,6 @@
 | 区間の端の駅データ2023 | [ダウンロード](https://shi-works.github.io/gtfs-gis-railway-honsu-pmtiles/PMTiles/unkohonsu2023_kukan_eki.pmtiles) |
 | 路線別・駅別発着本数データ2023 | [ダウンロード](https://shi-works.github.io/gtfs-gis-railway-honsu-pmtiles/PMTiles/unkohonsu2023_rosen_eki.pmtiles) |
 | 事業者別・駅別発着本数データ2023 | [ダウンロード](https://shi-works.github.io/gtfs-gis-railway-honsu-pmtiles/PMTiles/unkohonsu2023_eki.pmtiles) |
+
+## 免責事項
+- 利用者がデータを用いて行う一切の行為（データを編集・加工等した情報を利用することを含む）について何ら責任を負うものではありません。
