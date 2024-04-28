@@ -55,8 +55,8 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          git config --local user.email "actions@github.com"
-          git config --local user.name "GitHub Actions"
+          git config --local user.email "y.shiwaku.5519@gmail.com"
+          git config --local user.name "shi-works"
           git add FlatGeobuf PMTiles
           git commit -m "Update GeoJSON, FlatGeobuf, and PMTiles files"
           git push
