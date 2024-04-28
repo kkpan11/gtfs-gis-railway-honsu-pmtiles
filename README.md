@@ -36,5 +36,10 @@
 | 路線別・駅別発着本数データ2023 | [ダウンロード](https://shi-works.github.io/gtfs-gis-railway-honsu-pmtiles/PMTiles/unkohonsu2023_rosen_eki.pmtiles) | [PMTiles Viewer](https://protomaps.github.io/PMTiles/?url=https%3A%2F%2Fshi-works.github.io%2Fgtfs-gis-railway-honsu-pmtiles%2FPMTiles%2Funkohonsu2023_rosen_eki.pmtiles#map=4.44/36.4/136.62) |
 | 事業者別・駅別発着本数データ2023 | [ダウンロード](https://shi-works.github.io/gtfs-gis-railway-honsu-pmtiles/PMTiles/unkohonsu2023_eki.pmtiles) | [PMTiles Viewer](https://protomaps.github.io/PMTiles/?url=https%3A%2F%2Fshi-works.github.io%2Fgtfs-gis-railway-honsu-pmtiles%2FPMTiles%2Funkohonsu2023_eki.pmtiles#map=4.44/36.4/136.62) |
 
+## デモサイト（MapLibre GL JS）
+- 使用データ：路線別・区間別運行本数データ2024（PMTiles形式）
+https://shi-works.github.io/traffic-map-on-maplibre-gl-js/#10.36/35.683/139.6754
+![image](https://github.com/shi-works/gtfs-gis-railway-honsu-pmtiles/assets/71203808/516c02d2-4fe0-46d7-a35d-b8d74e17f219)
+
 ## 免責事項
 - 利用者がデータを用いて行う一切の行為について何ら責任を負うものではありません。
