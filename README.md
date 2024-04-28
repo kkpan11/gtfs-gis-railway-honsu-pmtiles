@@ -10,9 +10,9 @@
 | データの種類 | ダウンロード |
 | ---- | ---- |
 | 路線別・区間別運行本数データ2024 | [ダウンロード](https://shi-works.github.io/gtfs-gis-railway-honsu-pmtiles/FlatGeobuf/unkohonsu2024_rosen_kukan.fgb) |
-| 区間別運行本数データ2024 | ダウンロード |
-| 区間の端の駅データ2024 | ダウンロード |
-| 路線別・駅別発着本数データ2024 | ダウンロード |
-| 事業者別・駅別発着本数データ2024 | ダウンロード |
+| 区間別運行本数データ2024 | [ダウンロード](https://shi-works.github.io/gtfs-gis-railway-honsu-pmtiles/FlatGeobuf/unkohonsu2024_kukan.fgb) |
+| 区間の端の駅データ2024 | [ダウンロード](https://shi-works.github.io/gtfs-gis-railway-honsu-pmtiles/FlatGeobuf/unkohonsu2024_kukan_eki.fgb) |
+| 路線別・駅別発着本数データ2024 | [ダウンロード](https://shi-works.github.io/gtfs-gis-railway-honsu-pmtiles/FlatGeobuf/unkohonsu2024_rosen_eki.fgb) |
+| 事業者別・駅別発着本数データ2024 | [ダウンロード](https://shi-works.github.io/gtfs-gis-railway-honsu-pmtiles/FlatGeobuf/unkohonsu2024_eki.fgb) |
 
 ## PMTiles形式
