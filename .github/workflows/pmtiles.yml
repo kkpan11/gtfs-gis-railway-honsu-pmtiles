@@ -37,6 +37,7 @@ jobs:
             curl -o "GeoJSON/$key.geojson" "${urls[$key]}"
             ogr2ogr -f FlatGeobuf "FlatGeobuf/$key.fgb" "GeoJSON/$key.geojson"
           done
+        shell: bash
 
       - name: Convert FlatGeobuf to PMTiles
         run: |
@@ -44,6 +45,7 @@ jobs:
             base=$(basename $f .fgb)
             tippecanoe -o PMTiles/${base}.pmtiles --force $f -pf -pk
           done
+        shell: bash
 
       - name: Commit and push changes
         run: |
@@ -52,9 +54,8 @@ jobs:
           git add FlatGeobuf PMTiles GeoJSON/
           git commit -m "Update GeoJSON, FlatGeobuf, and PMTiles files"
           git push
+        shell: bash
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./PMTiles
+       
