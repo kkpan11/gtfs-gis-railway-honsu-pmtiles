@@ -8,19 +8,28 @@ on:
 jobs:
   convert-and-deploy:
     runs-on: ubuntu-latest
-    container:
-      image: shiworks/tippecanoe-gdal:latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Setup directories and convert GeoJSONs
+      - name: Install dependencies
         run: |
+          sudo apt-get update
+          sudo apt-get install -y gdal-bin build-essential libsqlite3-dev zlib1g-dev
+      - name: Install Tippecanoe
+        run: |
+          git clone https://github.com/felt/tippecanoe.git
+          cd tippecanoe
+          make -j
+          sudo make install
+      - name: Download and Convert GeoJSONs
+        run: |
+          # Create directories if not exist
           mkdir -p FlatGeobuf
           mkdir -p PMTiles
           mkdir -p GeoJSON
-
+          # Download and convert each GeoJSON to FlatGeobuf
           declare -A urls=(
             ["unkohonsu2024_rosen_kukan"]="https://gtfs-gis.jp/railway_honsu/data/unkohonsu2024_rosen_kukan.geojson"
             ["unkohonsu2024_kukan"]="https://gtfs-gis.jp/railway_honsu/data/unkohonsu2024_kukan.geojson"
@@ -34,12 +43,9 @@ jobs:
             ["unkohonsu2023_eki"]="https://gtfs-gis.jp/railway_honsu/data/unkohonsu2023_eki.geojson"
           )
           for key in "${!urls[@]}"; do
-          echo "Downloading and converting $key"
-          curl -o "GeoJSON/$key.geojson" "${urls[$key]}"
-          ogr2ogr -f FlatGeobuf "FlatGeobuf/$key.fgb" "GeoJSON/$key.geojson" || echo "Failed to convert $key"
+            curl -o "GeoJSON/$key.geojson" "${urls[$key]}"
+            ogr2ogr -f FlatGeobuf "FlatGeobuf/$key.fgb" "GeoJSON/$key.geojson"
           done
-        shell: bash
-
       - name: Convert FlatGeobuf to PMTiles
         run: |
           # Convert each FlatGeobuf to PMTiles using specific tippecanoe commands with the --force option
@@ -53,8 +59,6 @@ jobs:
           tippecanoe -o PMTiles/unkohonsu2023_kukan_eki.pmtiles --force FlatGeobuf/unkohonsu2023_kukan_eki.fgb -r1 -pf -pk
           tippecanoe -o PMTiles/unkohonsu2023_rosen_eki.pmtiles --force FlatGeobuf/unkohonsu2023_rosen_eki.fgb -r1 -pf -pk
           tippecanoe -o PMTiles/unkohonsu2023_eki.pmtiles --force FlatGeobuf/unkohonsu2023_eki.fgb -r1 -pf -pk
-        shell: bash
-
       - name: Commit and push changes
         run: |
           git config --local user.email "y.shiwaku.5519@gmail.com"
@@ -62,7 +66,8 @@ jobs:
           git add FlatGeobuf PMTiles GeoJSON/
           git commit -m "Update GeoJSON, FlatGeobuf, and PMTiles files"
           git push
-        shell: bash
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./PMTiles
