@@ -34,8 +34,9 @@ jobs:
             ["unkohonsu2023_eki"]="https://gtfs-gis.jp/railway_honsu/data/unkohonsu2023_eki.geojson"
           )
           for key in "${!urls[@]}"; do
-            curl -o "GeoJSON/$key.geojson" "${urls[$key]}"
-            ogr2ogr -f FlatGeobuf "FlatGeobuf/$key.fgb" "GeoJSON/$key.geojson"
+          echo "Downloading and converting $key"
+          curl -o "GeoJSON/$key.geojson" "${urls[$key]}"
+          ogr2ogr -f FlatGeobuf "FlatGeobuf/$key.fgb" "GeoJSON/$key.geojson" || echo "Failed to convert $key"
           done
         shell: bash
 
@@ -58,4 +59,3 @@ jobs:
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
-       
