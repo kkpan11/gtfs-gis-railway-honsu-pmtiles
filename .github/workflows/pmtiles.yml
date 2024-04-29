@@ -30,6 +30,7 @@ jobs:
           # Create directories if not exist
           mkdir -p FlatGeobuf
           mkdir -p PMTiles
+          mkdir -p GeoJSON
 
           # Download and convert each GeoJSON to FlatGeobuf
           declare -A urls=(
