@@ -42,10 +42,17 @@ jobs:
 
       - name: Convert FlatGeobuf to PMTiles
         run: |
-          for f in FlatGeobuf/*.fgb; do
-            base=$(basename $f .fgb)
-            tippecanoe -o PMTiles/${base}.pmtiles --force $f -pf -pk
-          done
+          # Convert each FlatGeobuf to PMTiles using specific tippecanoe commands with the --force option
+          tippecanoe -o PMTiles/unkohonsu2024_rosen_kukan.pmtiles --force FlatGeobuf/unkohonsu2024_rosen_kukan.fgb -pf -pk
+          tippecanoe -o PMTiles/unkohonsu2024_kukan.pmtiles --force FlatGeobuf/unkohonsu2024_kukan.fgb -pf -pk
+          tippecanoe -o PMTiles/unkohonsu2024_kukan_eki.pmtiles --force FlatGeobuf/unkohonsu2024_kukan_eki.fgb -r1 -pf -pk
+          tippecanoe -o PMTiles/unkohonsu2024_rosen_eki.pmtiles --force FlatGeobuf/unkohonsu2024_rosen_eki.fgb -r1 -pf -pk
+          tippecanoe -o PMTiles/unkohonsu2024_eki.pmtiles --force FlatGeobuf/unkohonsu2024_eki.fgb -r1 -pf -pk
+          tippecanoe -o PMTiles/unkohonsu2023_rosen_kukan.pmtiles --force FlatGeobuf/unkohonsu2023_rosen_kukan.fgb -pf -pk
+          tippecanoe -o PMTiles/unkohonsu2023_kukan.pmtiles --force FlatGeobuf/unkohonsu2023_kukan.fgb -pf -pk
+          tippecanoe -o PMTiles/unkohonsu2023_kukan_eki.pmtiles --force FlatGeobuf/unkohonsu2023_kukan_eki.fgb -r1 -pf -pk
+          tippecanoe -o PMTiles/unkohonsu2023_rosen_eki.pmtiles --force FlatGeobuf/unkohonsu2023_rosen_eki.fgb -r1 -pf -pk
+          tippecanoe -o PMTiles/unkohonsu2023_eki.pmtiles --force FlatGeobuf/unkohonsu2023_eki.fgb -r1 -pf -pk
         shell: bash
 
       - name: Commit and push changes
