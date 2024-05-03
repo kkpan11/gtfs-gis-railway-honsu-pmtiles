@@ -39,7 +39,8 @@
 ## デモサイト（MapLibre GL JS）
 - 使用データ
   - 路線別・区間別運行本数データ2024（PMTiles形式）
-  - 国土数値情報 鉄道データ（2022年度）  
+  - 国土数値情報 鉄道データ（2022年度）
+  - e-stat 人口集中地区（2020年）
 
 https://shi-works.github.io/traffic-map-on-maplibre-gl-js/#10.36/35.683/139.6754  
 ![image](https://github.com/shi-works/gtfs-gis-railway-honsu-pmtiles/assets/71203808/516c02d2-4fe0-46d7-a35d-b8d74e17f219)
