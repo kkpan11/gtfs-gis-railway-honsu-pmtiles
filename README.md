@@ -6,6 +6,7 @@
 
 ## FlatGeobuf形式
 - 上記の公開データ（GeoJSON形式）を[GDAL/OGR](https://gdal.org/index.html)でFlatGeobuf形式に変換したデータです。
+- ※1日に1回、データは自動で更新されます（公開データに修正がある場合）。
 
 | データの種類 | ダウンロード |
 | ---- | ---- |
@@ -22,6 +23,7 @@
 
 ## PMTiles形式
 - 上記のFlatGeobuf形式のデータを[felt/tippecanoe](https://github.com/felt/tippecanoe)でPMTiles形式に変換したデータです。
+- ※1日に1回、データは自動で更新されます（公開データに修正がある場合）。
 
 | データの種類 | ダウンロード | PMTiles Viewer |
 | ---- | ---- | ---- |
